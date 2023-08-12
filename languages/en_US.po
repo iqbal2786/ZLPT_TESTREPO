@@ -1,0 +1,243 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ZestyLemon\n"
+"POT-Creation-Date: 2021-11-16 09:15+0200\n"
+"PO-Revision-Date: 2021-11-16 09:16+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: inc/admin/custom-post-types.php:6
+msgctxt "Post Type General Name"
+msgid "Properties"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:7
+msgctxt "Post Type Singular Name"
+msgid "Property"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:8
+msgid "Properties"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:9
+msgid "Property"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:10
+msgid "Item Archives"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:11
+msgid "Item Attributes"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:12 inc/admin/custom-post-types.php:81
+#: inc/admin/custom-post-types.php:116
+msgid "Parent Item:"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:13
+msgid "All properties"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:14
+msgid "Add New property"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:15
+msgid "Add New"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:16
+msgid "New property"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:17
+msgid "Edit property"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:18
+msgid "Update property"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:19
+msgid "View property"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:20
+msgid "View properties"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:21
+msgid "Search property"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:22
+msgid "Not found"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:23
+msgid "Not found in Trash"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:24
+msgid "Featured Image"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:25
+msgid "Set featured image"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:26
+msgid "Remove featured image"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:27
+msgid "Use as featured image"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:28
+msgid "Insert into property"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:29
+msgid "Uploaded to this property"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:30
+msgid "Properties list"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:31
+msgid "Properties list navigation"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:32
+msgid "Filter properties list"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:76
+msgctxt "Taxonomy General Name"
+msgid "Property Locations"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:77
+msgctxt "Taxonomy Singular Name"
+msgid "Property Location"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:78
+msgid "Property Locations"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:79 inc/admin/custom-post-types.php:114
+msgid "All Items"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:80 inc/admin/custom-post-types.php:115
+msgid "Parent Item"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:82 inc/admin/custom-post-types.php:117
+msgid "New Item Name"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:83 inc/admin/custom-post-types.php:118
+msgid "Add New Item"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:84 inc/admin/custom-post-types.php:119
+msgid "Edit Item"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:85 inc/admin/custom-post-types.php:120
+msgid "Update Item"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:86 inc/admin/custom-post-types.php:121
+msgid "View Item"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:87 inc/admin/custom-post-types.php:122
+msgid "Separate items with commas"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:88 inc/admin/custom-post-types.php:123
+msgid "Add or remove items"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:89 inc/admin/custom-post-types.php:124
+msgid "Choose from the most used"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:90 inc/admin/custom-post-types.php:125
+msgid "Popular Items"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:91 inc/admin/custom-post-types.php:126
+msgid "Search Items"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:92 inc/admin/custom-post-types.php:127
+msgid "Not Found"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:93 inc/admin/custom-post-types.php:128
+msgid "No items"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:94 inc/admin/custom-post-types.php:129
+msgid "Items list"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:95 inc/admin/custom-post-types.php:130
+msgid "Items list navigation"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:111
+msgctxt "Taxonomy General Name"
+msgid "Property Tags"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:112
+msgctxt "Taxonomy Singular Name"
+msgid "Property Tag"
+msgstr ""
+
+#: inc/admin/custom-post-types.php:113
+msgid "Property Tags"
+msgstr ""
+
+#: inc/admin/theme-setup.php:15
+msgid "Copyright Menu"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+#. Author of the plugin/theme
+msgid "ZestyLemon"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "#"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "ZestyLemon - GeneratePress child theme"
+msgstr ""

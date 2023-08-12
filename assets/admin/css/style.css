@@ -1,0 +1,133 @@
+/*
+ Content
+ 01. General Styles
+ 02. ACF fields style
+ 03. Floating message
+ 04. Properties settings links
+ */
+ 
+ /* 01. General Styles */
+ .property_status-color,
+ .property_type-color {
+	display: inline-block;
+	width: 30px;
+	height: 20px;
+	border-radius: 3px;
+}
+a.property_status-color {
+	width: auto;
+	color: #FFFFFF;
+	padding: 3px 8px;
+}
+a.property_status-color:hover {
+	color: #FFFFFF;
+}
+.tablenav .actions {
+	display: flex;
+    align-items: center;
+	flex-wrap: wrap;
+}
+.post-type-property.edit-php .tablenav .actions:not(.bulkactions) {
+	margin-top: 7px;
+}
+.post-type-property.edit-php .tablenav .actions:not(.bulkactions) select,
+.post-type-property.edit-php .tablenav .actions:not(.bulkactions) input[type="text"] {
+	margin-bottom: 7px;
+}
+.post-type-property .tablenav .actions:not(.bulkactions) select,
+.post-type-property .tablenav .actions:not(.bulkactions) input[type="text"] {
+	margin-right: 6px;
+}
+#terms-query-submit {
+	margin-right: 8px;
+}
+.tablenav .actions .zestylemon-rest-filter {
+	order: 1;
+}
+.feature-icon-holder,
+.feature-icon-holder > * {
+	max-width: 35px;
+	max-height: 35px;
+}
+
+/* 02. ACF fields style */
+div[data-name="pets_for_free"] {
+	clear: none !important;
+}
+div[data-name="property_features"] .acf-checkbox-list {
+	column-count: 2;
+	padding: 0;
+}
+div[data-name="property_features"] .categorychecklist-holder {
+	max-height: initial;
+	border: none;
+	overflow-x: hidden;
+}
+@media (min-width: 992px) {
+	div[data-name="property_features"] .acf-checkbox-list {
+		column-count: 4;
+	}
+}
+.acf-field-repeater[data-name="property_features"] .acf-checkbox-list small {
+	line-height: 1;
+}
+.acf-field-repeater[data-name="property_features"] .acf-row-handle.remove,
+.acf-field-repeater[data-name="property_features"] .acf-actions {
+	display: none;
+}
+.acf-field-repeater[data-name="nearest_attractions"] .acf-table .acf-row:not(:first-child) td {
+    border-top: 3px solid #b3b3b3;
+}
+.acf-field-repeater[data-name="nearest_attractions"] .acf-row-handle .acf-icon {
+	margin-top: -12px;
+}
+
+/* 03. Floating message */
+.zestylemon-floating-message {
+	display: none;
+	position: fixed;
+	max-width: 50%;
+	top: 32px;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 12px 60px 12px 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	z-index: 1000;
+}
+.zestylemon-floating-message.success {
+	color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.zestylemon-floating-message.failed {
+	color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.zestylemon-floating-message-close {
+	position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 5px;
+    top: 5px;
+	background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 330 330' style='enable-background:new 0 0 330 330;' xml:space='preserve'%3E %3Cg%3E %3Cpath fill='%23155724' d='M165,0C74.019,0,0,74.019,0,165s74.019,165,165,165c90.982,0,165-74.019,165-165S255.982,0,165,0z M165,300 c-74.439,0-135-60.561-135-135S90.561,30,165,30c74.439,0,135,60.561,135,135S239.439,300,165,300z'/%3E %3Cpath fill='%23155724' d='M239.247,90.754c-5.857-5.858-15.355-5.858-21.213,0l-53.033,53.033l-53.033-53.033c-5.857-5.858-15.355-5.858-21.213,0 c-5.858,5.858-5.858,15.355,0,21.213L143.788,165l-53.033,53.033c-5.858,5.858-5.858,15.355,0,21.213 c2.929,2.929,6.768,4.394,10.606,4.394c3.839,0,7.678-1.464,10.606-4.394l53.033-53.033l53.033,53.033 c2.929,2.929,6.768,4.394,10.606,4.394c3.839,0,7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L186.214,165 l53.033-53.033C245.105,106.109,245.105,96.612,239.247,90.754z'/%3E %3C/g%3E %3C/svg%3E");
+	background-repeat: no-repeat;
+	background-size: 15px;
+	background-position: center;
+	cursor: pointer;
+	opacity: 0.7;
+	transition: 0.3s;
+}
+.zestylemon-floating-message.failed .zestylemon-floating-message-close {
+	background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 330 330' style='enable-background:new 0 0 330 330;' xml:space='preserve'%3E %3Cg%3E %3Cpath fill='%23721c24' d='M165,0C74.019,0,0,74.019,0,165s74.019,165,165,165c90.982,0,165-74.019,165-165S255.982,0,165,0z M165,300 c-74.439,0-135-60.561-135-135S90.561,30,165,30c74.439,0,135,60.561,135,135S239.439,300,165,300z'/%3E %3Cpath fill='%23721c24' d='M239.247,90.754c-5.857-5.858-15.355-5.858-21.213,0l-53.033,53.033l-53.033-53.033c-5.857-5.858-15.355-5.858-21.213,0 c-5.858,5.858-5.858,15.355,0,21.213L143.788,165l-53.033,53.033c-5.858,5.858-5.858,15.355,0,21.213 c2.929,2.929,6.768,4.394,10.606,4.394c3.839,0,7.678-1.464,10.606-4.394l53.033-53.033l53.033,53.033 c2.929,2.929,6.768,4.394,10.606,4.394c3.839,0,7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L186.214,165 l53.033-53.033C245.105,106.109,245.105,96.612,239.247,90.754z'/%3E %3C/g%3E %3C/svg%3E");
+}
+.zestylemon-floating-message-close:hover {
+	opacity: 1;
+}
+
+/* 04. Properties settings links */
+.zestylemon-properties-settings-links {
+	list-style: disc;
+	list-style-position: inside;
+}

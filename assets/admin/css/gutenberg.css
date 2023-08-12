@@ -1,0 +1,277 @@
+/*
+ Content
+ 01. General Styles
+*/
+
+/* 01. General Styles */
+body.gp-is-device-mobile .block-editor-block-list__block p.wp-block {
+	font-size: 0.9em;
+}
+body.gp-is-device-tablet .block-editor-block-list__block p.wp-block {
+	font-size: 1em;
+}
+body .block-editor-block-list__block p.wp-block {
+	font-size: 1.2em;
+}
+.zl-block-editor .zl-property-archive-item-wrapper {
+	width: calc(100% / 3);
+}
+.wp-core-ui .components-input-control__container .components-select-control__input[multiple] {
+    height: 200px;
+}
+.components-select-control__input[multiple] + .components-input-control__suffix {
+    display: none;
+}
+.zl-has-long-label label {
+    white-space: initial !important;
+}
+
+/* 02. Properties map */
+#zl-properties-map {
+	position: relative;
+	width: 100%;
+	min-height: 520px;
+	background-color: lightgrey;
+}
+#zl-properties-map:after {
+	content: 'Google Maps';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* 03. Image preview */
+.wp-block .zl-featured-article .zl-featured-article-image a {
+    display: initial;
+}
+.zl-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f1f1f1;
+    margin-bottom: 12px;
+    margin-top: .6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    min-height: 100px;
+}
+.zl-placeholder:hover {
+    background: #fafafa;
+}
+.zl-placeholder:focus {
+    background: #fafafa;
+    box-shadow: 0 0 0 2px rgba(30,140,190,.8);
+}
+.zl-placeholder svg {
+    height: 50px;
+    fill: #ddd;
+}
+.zl-image-preview-wrapper {
+	position: relative;
+    display: inline-block;
+}
+.components-panel__body .zl-image-preview-wrapper {
+    display: block;
+    margin-top: 25px;
+    width: 90%;
+    text-align: center;
+}
+.zl-image-preview-remove,
+.zl-image-preview {
+	cursor: pointer;
+}
+.zl-image-preview-remove {
+	border-radius: 50%;
+    padding: 0;
+    border-width: 1px;
+	position: absolute;
+    top: -20px;
+    right: -20px;
+}
+.zl-target-url .block-editor-url-input input[type=text] {
+    width: 100%;
+    border: 1px solid;
+    border-radius: 4px;
+}
+/* 04. Icon selector component */
+.zesty-lemon-icon-selector-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.zesty-lemon-icon-selector-container .components-base-control,
+.zesty-lemon-icon-selector-container .components-base-control .components-base-control__field {
+    margin-bottom: 0;
+}
+.zesty-lemon-icon-selector-container .components-text-control__input {
+    display: none;
+}
+.zesty-lemon-icon-selector-container .zesty-lemon-icon-collection-name {
+    font-weight: 700;
+    margin: 8px;
+}
+.zesty-lemon-icon-selector-container .zesty-lemon-icon-collections {
+    height: 250px;
+    overflow-y: auto;
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+.zesty-lemon-icon-selector-container .zesty-lemon-icon-selector {
+    display: flex;
+    flex-wrap: wrap;
+}
+.zesty-lemon-icon-selector-container .zesty-lemon-icon-selector span {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    width: calc(25% - 10px);
+    height: 50px;
+    margin: 5px;
+    border: 1px solid #BBB;
+    border-radius: 3px;
+}
+.zesty-lemon-icon-selector-container .zesty-lemon-selected-icon {
+    display: flex;
+    flex-direction: column;
+}
+.zesty-lemon-icon-selector-container .zesty-lemon-selected-icon-preview {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.zesty-lemon-icon-selector-container .zesty-lemon-selected-icon-name {
+    font-weight: 600;
+    font-style: italic;
+    margin-left: 10px;
+}
+.zesty-lemon-icon-selector-container .zesty-lemon-selected-icon span {
+    font-size: 25px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #86b7fe;
+    border-radius: 3px;
+}
+.zesty-lemon-icon-selector-container .zesty-lemon-icon-selector span.selected,
+.zesty-lemon-icon-selector-container .zesty-lemon-icon-selector span:hover {
+    border-color: #BBB;
+    -webkit-box-shadow: 0 0 4px 3px rgb(13, 110, 253, 0.15);
+	box-shadow: 0 0 4px 3px rgb(13, 110, 253, 0.15);
+}
+.zesty-lemon-icon-selector-container .zesty-lemon-icon-selector span.selected {
+    border-color: #86b7fe;
+    border-width: 2px;
+}
+.zesty-lemon-icon-selector-container .zesty-lemon-filter-icons input {
+    margin-top: 10px;
+    width: 100%;
+}
+/* 05. Properties grid */
+.zesty-lemon-properties-entries .zl-property-archive-item-wrapper {
+    width: 100%;
+}
+.zesty-lemon-properties-entries .zl-property-archive-item-wrapper figure {
+    margin: 0;
+}
+/* 06. Property stand out features */
+.zl-stand-out-features-container .block-editor-block-list__layout {
+    display: flex;
+    flex-wrap: wrap;
+}
+.zl-stand-out-features-container .block-editor-block-list__layout:after {
+    content: '';
+    flex: 1;
+}
+.zl-stand-out-features-container[data-items="1"] .block-editor-block-list__layout > * {
+    width: 100%;
+}
+.zl-stand-out-features-container[data-items="2"] .block-editor-block-list__layout > * {
+    /* width: 50%; */
+    width: calc((100% - 25px) / 2);
+}
+.zl-stand-out-features-container[data-items="3"] .block-editor-block-list__layout > * {
+    /* width: calc(100% / 3); */
+    width: calc((100% - 50px) / 3);
+}
+.zl-stand-out-features-container[data-items="4"] .block-editor-block-list__layout > * {
+    /* width: 25%; */
+    width: calc((100% - 75px) / 4);
+}
+.zl-stand-out-features-container[data-items="5"] .block-editor-block-list__layout > * {
+    /* width: 20%; */
+    width: calc((100% - 100px) / 5);
+}
+.zl-stand-out-features-container[data-items="6"] .block-editor-block-list__layout > * {
+    /* width: calc(100% / 6); */
+    width: calc((100% - 125px) / 6);
+}
+.zl-stand-out-features-container .block-editor-block-list__layout > * {
+    display: flex;
+    justify-content: center;
+    margin-right: 25px;
+}
+.zl-stand-out-features-container[data-items="1"] .block-editor-block-list__layout > *,
+.zl-stand-out-features-container[data-items="2"] .block-editor-block-list__layout > *:nth-child(2n),
+.zl-stand-out-features-container[data-items="3"] .block-editor-block-list__layout > *:nth-child(3n),
+.zl-stand-out-features-container[data-items="4"] .block-editor-block-list__layout > *:nth-child(4n),
+.zl-stand-out-features-container[data-items="5"] .block-editor-block-list__layout > *:nth-child(5n),
+.zl-stand-out-features-container[data-items="6"] .block-editor-block-list__layout > *:nth-child(6n) {
+    margin-right: 0;
+}
+.zl-stand-out-features-container .block-editor-block-list__layout > * > *,
+.zl-stand-out-features-container .block-editor-block-list__layout > * > * > * {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+.zl-stand-out-features-container .block-editor-block-list__layout .zl-stand-out-feature-icon {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.zl-stand-out-features-container .block-editor-block-list__layout .zl-stand-out-feature-icon svg {
+    min-width: 35px;
+    min-height: 35px;
+}
+.zl-stand-out-features-container .block-editor-block-list__layout .zl-stand-out-feature-number {
+    flex: 1;
+    display: flex;
+    align-items: end;
+}
+/* 07. Single property map */
+.zl-map {
+    border: 1px solid #333;
+    background-color: #CCC;
+}
+/* 08. Single property affiliate button */
+.block-editor-block-list__block a.zl-cta-button,
+.block-editor-block-list__block a.zl-cta-button:hover,
+.block-editor-block-list__block a.zl-cta-button:focus,
+.block-editor-block-list__block a.zl-cta-button:visited {
+    color: #FFF;
+}
+/* 09. A-Z Articles Intagram block */
+.a-z-section,
+.a-z-section .gb-inside-container {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+/* 10. What we like */
+.zesty-lemon-single-property-what-we-like .grid-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+html .editor-styles-wrapper h2.what-we-like-title {
+	font-size: 26px;
+	line-height: 26px;
+	font-weight: 500;
+	margin-bottom: 10px;
+	color: #FFF;
+}

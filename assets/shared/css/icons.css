@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'zl-icons';
+  src:  url('../fonts/zl-icons.eot?nh0xk');
+  src:  url('../fonts/zl-icons.eot?nh0xk#iefix') format('embedded-opentype'),
+    url('../fonts/zl-icons.ttf?nh0xk') format('truetype'),
+    url('../fonts/zl-icons.woff?nh0xk') format('woff'),
+    url('../fonts/zl-icons.svg?nh0xk#zl-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="zl-icon-"], [class*=" zl-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'zl-icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.zl-icon-down:before {
+  content: "\e900";
+}
+.zl-icon-location:before {
+  content: "\e947";
+}
+.zl-icon-check:before {
+  content: "\e901";
+}
+.zl-icon-bath:before {
+  content: "\e902";
+}
+.zl-icon-bed:before {
+  content: "\e903";
+}
+.zl-icon-profile-male:before {
+  content: "\e904";
+}
+.zl-icon-grid-view:before {
+  content: "\e905";
+}
+.zl-icon-list-view:before {
+  content: "\e906";
+}
