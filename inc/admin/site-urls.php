@@ -65,7 +65,7 @@ function zesty_lemon_remove_taxonomy_slug( $term_link, $term ) {
 	Code commented by NisarAhmed dated 3-1-2023
 	Comment out 'posts_clauses' filter as this filer is causing 404 error for many properties pages.
 */
-add_filter('posts_clauses', 'zesty_lemon_query_clauses', 20, 2);
+//add_filter('posts_clauses', 'zesty_lemon_query_clauses', 20, 2);
 function zesty_lemon_query_clauses($pieces, $query) {
     global $wpdb;
 	if ( ! is_admin() && $query->is_main_query() ) {

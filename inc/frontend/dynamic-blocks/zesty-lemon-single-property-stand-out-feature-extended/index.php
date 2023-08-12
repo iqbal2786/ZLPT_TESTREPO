@@ -26,26 +26,6 @@ function render_dynamic_block( $attributes ) {
 	global $wp_query;
 
 	ob_start();
-	if ( isset( $_GET['context'] ) && $_GET['context'] == 'edit' ) {
-		$editor = true;
-		$args   = array(
-			'post_type' => 'property',
-			'tax_query' => array(
-				    array(
-				        'taxonomy'  => 'property_type',
-				        'terms' 	=> array('hotel','resort'),
-				        'field'     => 'slug',
-				        'include_children' => true,
-				        'operator' => 'IN'
-				    )
-				),
-		);
-		$properties = new \WP_Query( $args );
-		if ( $properties->have_posts() ) {
-			$properties->the_post();
-		}
-	}
-	
 	$post_id 			= get_the_ID();
 	$property_type 		= get_the_terms( $post_id, 'property_type' );
 	$property_type 		= join(', ', wp_list_pluck($property_type, 'slug'));
@@ -58,7 +38,15 @@ function render_dynamic_block( $attributes ) {
 	$expand_standout_features = str_replace('{{villas}}', $portfolio_villas, $expand_standout_features);
 	$expand_standout_features = str_replace('{{title}}', get_the_title(), $expand_standout_features);
 	
-	if($property_type == "hotel" || $property_type == "resort"){
+		if( is_admin() ){
+		?>
+			<div class="zl-block-container zl-stand-out-feature-extended">
+				<div class="zl-stand-out-feature-extended-wrapper">
+					<p><?php echo $expand_standout_features; ?></p>
+				</div>
+			</div>
+		<?php
+	}else if($property_type == "hotel" || $property_type == "resort"){
 		?>
 			<div class="zl-block-container zl-stand-out-feature-extended">
 				<div class="zl-stand-out-feature-extended-wrapper">

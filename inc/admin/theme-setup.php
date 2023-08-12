@@ -84,18 +84,10 @@ function zesty_lemon_enqueue_shared_scripts() {
 add_action( 'wp_enqueue_scripts', 'zesty_lemon_enqueue_scripts' );
 function zesty_lemon_enqueue_scripts() {
 	// Scripts
-	if( 
-		(isset($_GET['properties']) && $_GET['properties'] == 'yes' && is_search()) 
-		||
-		(is_tax('property_location')) 
-		||
-		(is_singular('property')) 
-	){
-		$google_api_key = $value = apply_filters( 'zesty_lemon_google_api_key', null );
-		if ( ! empty( $google_api_key ) ) {
-			$language = 'en';
-			wp_enqueue_script( 'google-maps-api', '//maps.googleapis.com/maps/api/js?v=3&libraries=places&key=' . $google_api_key . '&callback=Function.prototype&language='. $language, array(), '3', true );
-		}
+	$google_api_key = $value = apply_filters( 'zesty_lemon_google_api_key', null );
+	if ( ! empty( $google_api_key ) ) {
+		$language = 'en';
+		wp_enqueue_script( 'google-maps-api', '//maps.googleapis.com/maps/api/js?v=3&libraries=places&key=' . $google_api_key . '&language='. $language, array(), '3', true );
 	}
 	zesty_lemon_wp_enqueue_script( 'jquery-ui', '/assets/frontend/js/jquery-ui.min.js', ['jquery'] );
 	zesty_lemon_wp_enqueue_script( 'lightgallery', '/assets/frontend/js/lightgallery.min.js', ['jquery'] );
