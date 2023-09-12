@@ -29,6 +29,7 @@ require_once 'inc/frontend/dynamic-blocks/zesty-lemon-single-property-rating/ind
 require_once 'inc/frontend/dynamic-blocks/zesty-lemon-single-property-nearest-facility/index.php';
 require_once 'inc/frontend/dynamic-blocks/zesty-lemon-single-property-good-for/index.php';
 require_once 'inc/frontend/dynamic-blocks/zesty-lemon-single-property-what-we-like/index.php';
+require_once 'inc/frontend/dynamic-blocks/zesty-lemon-single-property-food-and-drink/index.php';
 // require_once 'inc/frontend/dynamic-blocks/example-dynamic/index.php';
 
 require_once 'inc/helpers.php';
@@ -155,3 +156,172 @@ function generate_do_archive_description_customize() {
 	
 	do_action( 'generate_after_archive_description' );
 }
+
+
+/*
+	PT-36 : Only display an article's 'primary category' of blog archive pages
+*/
+function zestylemon_generate_dynamic_element_text_output_callback( $term_output, $block ){
+
+	if ( 'generateblocks/headline' === $block['blockName'] || 'generateblocks/button' === $block['blockName'] ) {
+		if ( ! empty( $block['attrs']['gpDynamicTextType'] ) && ! empty( $block['attrs']['gpDynamicTextReplace'] ) ) {
+			$text_to_replace 	= $block['attrs']['gpDynamicTextReplace'];
+			$text_type 			= $block['attrs']['gpDynamicTextType'];
+			$link_type 			= ! empty( $block['attrs']['gpDynamicLinkType'] ) ? $block['attrs']['gpDynamicLinkType'] : '';
+			$source 			= ! empty( $block['attrs']['gpDynamicSource'] ) ? $block['attrs']['gpDynamicSource'] : 'current-post';
+			$attributes 		= $block['attrs'];
+
+			/*
+			*Get the Source ID logic start here
+			*/
+			$id 				= get_the_ID();
+			if ( 'next-post' === $source ) {
+				$in_same_term 	= ! empty( $attributes['gpDynamicSourceInSameTerm'] ) ? true : false;
+				$term_taxonomy 	= ! empty( $attributes['gpDynamicSourceInSameTermTaxonomy'] ) ? $attributes['gpDynamicSourceInSameTermTaxonomy'] : 'category';
+				$next_post 		= get_next_post( $in_same_term, '', $term_taxonomy );
+
+				if ( ! is_object( $next_post ) ) {
+					return false;
+				}
+
+				$id 			= $next_post->ID;
+			}
+
+			if ( 'previous-post' === $source ) {
+				$in_same_term 	= ! empty( $attributes['gpDynamicSourceInSameTerm'] ) ? true : false;
+				$term_taxonomy 	= ! empty( $attributes['gpDynamicSourceInSameTermTaxonomy'] ) ? $attributes['gpDynamicSourceInSameTermTaxonomy'] : 'category';
+				$previous_post 	= get_previous_post( $in_same_term, '', $term_taxonomy );
+
+				if ( ! is_object( $previous_post ) ) {
+					return false;
+				}
+
+				$id = $previous_post->ID;
+			}
+
+			/*
+			*Get the Source ID logic end here
+			*/
+			if ( ! $id ) {
+				return '';
+			}
+
+			if ( 'terms' === $text_type && 'generateblocks/headline' === $block['blockName'] ) {
+				if ( ! empty( $block['attrs']['gpDynamicTextTaxonomy'] ) ) {
+
+					$term_id = get_post_meta( $id, 'rank_math_primary_'.$block['attrs']['gpDynamicTextTaxonomy'], true );
+					if(!empty( $term_id )){
+						$term = get_term( $term_id, $block['attrs']['gpDynamicTextTaxonomy'] );	
+						$terms[] = $term;
+					}else{
+						$terms = get_the_terms( $id, $block['attrs']['gpDynamicTextTaxonomy'] );	
+					}
+					
+					if ( is_wp_error( $terms ) ) {
+						return $block_content;
+					}
+
+					$term_items = array();
+
+					foreach ( (array) $terms as $term ) {
+						if ( ! isset( $term->name ) ) {
+							continue;
+						}
+
+						if ( 'term-archives' === $link_type ) {
+							$term_link = get_term_link( $term, $block['attrs']['gpDynamicTextTaxonomy'] );
+
+							if ( ! is_wp_error( $term_link ) ) {
+								$term_items[] = sprintf(
+									'<span class="post-term-item term-%3$s"><a href="%1$s">%2$s</a></span>',
+									rtrim(esc_url( get_term_link( $term, $block['attrs']['gpDynamicTextTaxonomy'] ) ), '/'),
+									$term->name,
+									$term->slug
+								);
+							}
+						} else {
+							$term_items[] = sprintf(
+								'<span class="post-term-item term-%2$s">%1$s</span>',
+								$term->name,
+								$term->slug
+							);
+						}
+					}
+
+					if ( empty( $term_items ) ) {
+						return '';
+					}
+
+					$sep = isset( $block['attrs']['gpDynamicTextTaxonomySeparator'] ) ? $block['attrs']['gpDynamicTextTaxonomySeparator'] : ', ';
+					$term_output = implode( $sep, $term_items );
+
+					if ( ! empty( $block['attrs']['gpDynamicTextBefore'] ) ) {
+						$term_output = $block['attrs']['gpDynamicTextBefore'] . $term_output;
+					}
+
+				} else {
+					return '';
+				}
+			}
+		}
+	}
+
+	return $term_output;
+}
+add_filter('generate_dynamic_element_text_output', 'zestylemon_generate_dynamic_element_text_output_callback', 10, 2);
+
+
+/*
+ * PT- 37  Move blog archive pages to a different URL 
+*/
+function zestylemon_custom_category_permalink_post( $permalink, $post, $leavename ) {
+    // Get the categories for the post
+    $category = get_the_category($post->ID); 
+    foreach( ZESTYLEMON_REWRITE_URL_ARRAY as $term_id => $term_data ){
+		if (  !empty($category) && $category[0]->term_id == $term_id ) {
+	        $permalink = trailingslashit( home_url($term_data['new-url'].'/'. $post->post_name . '/' ) );
+	    }
+	}
+    return $permalink;
+}
+if(ZESTYLEMON_ENABLE_REWRITE_URL){
+	//add_filter( 'post_link', 'zestylemon_custom_category_permalink_post', 10, 3 );
+}
+
+// Modify the category archive permalink
+function zestylemon_custom_category_permalink_archive( $permalink, $term, $taxonomy ){
+	// Get the category ID 
+	$category_id = $term->term_id;
+	// Check for desired category 
+	foreach( ZESTYLEMON_REWRITE_URL_ARRAY as $term_id => $term_data ){
+		if( !empty( $category_id ) && $category_id == $term_id ) {
+	        $permalink = trailingslashit( home_url( $term_data['new-url'] ) );		
+		}
+	}
+	return $permalink;
+}
+if(ZESTYLEMON_ENABLE_REWRITE_URL){
+	add_filter( 'term_link', 'zestylemon_custom_category_permalink_archive', 10, 3 );
+}	
+
+// Add rewrite rules so that WordPress delivers the correct content
+function zestylemon_custom_rewrite_rules( $wp_rewrite ) {
+    // This rule will will match the post name in /indonesia/%postname%/ structure
+	//$new_rules['^category/indonesia/bali/our-guide-to-bali/?$'] = 'index.php?cat=3';
+	foreach(ZESTYLEMON_REWRITE_URL_ARRAY as $term_id => $term_data ){
+		$new_rules['^'.$term_data['new-url'].'/?$'] = 'index.php?cat='.$term_id;
+	}
+	$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
+	return $wp_rewrite;
+}
+if(ZESTYLEMON_ENABLE_REWRITE_URL){
+	add_action('generate_rewrite_rules', 'zestylemon_custom_rewrite_rules');
+}
+
+function zestylemon_remove_blog_slug( $post_link, $post, $leavename ) {
+    if ( 'post' == $post->post_type && 'publish' == $post->post_status ) {
+        $post_link = str_replace( '/blog/', '/', $post_link );
+    }
+    return $post_link;
+}
+add_filter( 'post_link', 'zestylemon_remove_blog_slug', 10, 3 );	

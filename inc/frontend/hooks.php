@@ -12,11 +12,19 @@ function zesty_lemon_copyright ( $copyright ) {
 			'menu_class' => '',
 		)
 	);
+
+	if(!defined('ZL_COPYRIGHT_NAME')){
+		$ZL_COPYRIGHT_NAME = 'Zesty Lemon Ltd More';
+	}else{
+		$ZL_COPYRIGHT_NAME = ZL_COPYRIGHT_NAME;
+	}
+
 	printf(
 		'<span class="copyright">&copy; %1$s %2$s</span>',
 		date( 'Y' ), // phpcs:ignore
-		'Zesty Lemon Ltd',
+		$ZL_COPYRIGHT_NAME,
 	);
+
 	$html = ob_get_clean();
 	return $html;
 }
@@ -132,7 +140,6 @@ function zesty_lemon_generate_navigation_search_output( $search_form ) {
 	$search_form = sprintf(
 		'<form method="get" class="search-form navigation-search" action="%1$s">
 			<input type="search" class="search-field" value="%2$s" name="s" title="%3$s" />
-			<input type="hidden" value="yes" name="properties" />
 		</form>',
 		esc_url( home_url( '/' ) ),
 		esc_attr( get_search_query() ),
